@@ -143,7 +143,7 @@ RUN userdel developer
 
 # Install bundler (required for fastlane)
 # renovate: datasource=github-tags depName=rubygems/rubygems
-ARG BUNDLER_VERSION=2.3.5
+ARG BUNDLER_VERSION=3.3.13
 RUN gem install "bundler:${BUNDLER_VERSION}"
 
 # Install Gradle
