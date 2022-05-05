@@ -27,6 +27,11 @@
     {
       "matchManagers": ["regex"],
       "matchDatasources": ["git-tags"],
+      "extractVersion": "^(?<version>.*)$"
+    },
+    {
+      "matchManagers": ["regex"],
+      "matchDatasources": ["git-tags"],
       "extractVersion": "^go(?<version>.*)$"
     },
     {
