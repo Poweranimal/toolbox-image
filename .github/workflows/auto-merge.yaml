@@ -1,0 +1,18 @@
+name: Dependabot auto-merge
+on: pull_request
+permissions:
+  pull-requests: write
+  contents: write
+jobs:
+  call-test:
+    uses: bluegosolutions/gl-gh-actions-workflows/.github/workflows/test.yaml@v0.3.1
+    secrets:
+      username: ${{ secrets.IMAGE_GITHUB_USERNAME }}
+      password: ${{ secrets.IMAGE_GITHUB_PASSWORD }}
+    with:
+      enable_qemu: true
+  call-merge-pr:
+    uses: bluegosolutions/gl-gh-actions-workflows/.github/workflows/merge-pr.yaml@v0.3.1
+    needs: [ call-test ]
+    secrets:
+      ext_github_token: ${{ secrets.GITHUB_TOKEN }}

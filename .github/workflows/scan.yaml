@@ -1,0 +1,10 @@
+name: Scan
+on:
+  schedule:
+    - cron: '0 4 * * *'
+jobs:
+  call-scan:
+    uses: bluegosolutions/gl-gh-actions-workflows/.github/workflows/scan.yaml@v0.3.1
+    secrets:
+      username: ${{ secrets.IMAGE_GITHUB_USERNAME }}
+      password: ${{ secrets.IMAGE_GITHUB_PASSWORD }}
