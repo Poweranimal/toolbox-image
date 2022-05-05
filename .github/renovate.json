@@ -16,7 +16,7 @@
   "packageRules": [
     {
       "matchManagers": ["regex"],
-      "matchDatasources": ["github-tags"],
+      "matchDatasources": ["github-tags", "git-tags"],
       "extractVersion": "^v(?<version>.*)$"
     },
     {
