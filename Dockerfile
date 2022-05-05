@@ -148,7 +148,7 @@ RUN gem install "bundler:${BUNDLER_VERSION}"
 
 # Install Gradle
 # renovate: datasource=github-tags depName=gradle/gradle
-ARG GRADLE_VERSION=7.3.3
+ARG GRADLE_VERSION=7.4.2
 RUN wget -O /tmp/gradle.zip "https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip" &&\
     mkdir /opt/gradle &&\
     unzip -qd /opt/gradle /tmp/gradle.zip &&\
