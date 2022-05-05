@@ -1,4 +1,4 @@
-ARG FEDORA_VERSION="35"
+ARG FEDORA_VERSION=35
 
 FROM registry.fedoraproject.org/fedora-toolbox:${FEDORA_VERSION}
 LABEL summary="Base image for feadora toolbox" \
@@ -15,7 +15,7 @@ RUN dnf config-manager --add-repo https://download.docker.com/linux/fedora/docke
     dnf config-manager --add-repo https://cli.github.com/packages/rpm/gh-cli.repo
 
 # Install fusion repos.
-ARG FEDORA_VERSION="35"
+ARG FEDORA_VERSION=35
 RUN dnf install -y "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-${FEDORA_VERSION}.noarch.rpm"\
     "https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-${FEDORA_VERSION}.noarch.rpm"
 
@@ -32,7 +32,7 @@ ENV CHROME_EXECUTABLE="/usr/bin/chromium-browser"
 
 # Install golang
 # renovate: datasource=git-tags depName=https://github.com/golang/go.git
-ARG GO_VERSION="1.17.6"
+ARG GO_VERSION=1.17.6
 RUN curl -Lo go.linux-amd64.tar.gz "https://golang.org/dl/go${GO_VERSION}.linux-amd64.tar.gz" &&\
     rm -rf /usr/local/go && tar -C /usr/local -xzf go.linux-amd64.tar.gz &&\
     rm -f go.linux-amd64.tar.gz
@@ -41,17 +41,17 @@ ENV GOPRIVATE=github.com/bluegosolutions
 
 # Install go packages
 # renovate: datasource=github-tags depName=mikefarah/yq
-ARG YQ_VERSION="4.25.1"
+ARG YQ_VERSION=4.25.1
 # renovate: datasource=git-tags depName=https://github.com/golang/tools.git
-ARG GOIMPORTS_VERSION="0.1.10"
+ARG GOIMPORTS_VERSION=0.1.10
 # renovate: datasource=git-tags depName=https://github.com/grpc/grpc-go.git
-ARG PROTOC_GEN_GO_GRPC_VERSION="1.2.0"
+ARG PROTOC_GEN_GO_GRPC_VERSION=1.2.0
 RUN for p in "github.com/mikefarah/yq/v4@v${YQ_VERSION}" "golang.org/x/tools/cmd/goimports@v${GOIMPORTS_VERSION}"\
     "google.golang.org/grpc/cmd/protoc-gen-go-grpc@v${PROTOC_GEN_GO_GRPC_VERSION}" ; do go install "$p" ; done
 
 # Install AWS CLI.
 # renovate: datasource=git-tags depName=https://github.com/aws/aws-cli.git
-ARG AWS_CLI_VERSION="2.4.13"
+ARG AWS_CLI_VERSION=2.4.13
 RUN curl -o "/awscliv2.zip" "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-${AWS_CLI_VERSION}.zip" &&\
     unzip -q "/awscliv2.zip" &&\
     ./aws/install &&\
@@ -59,7 +59,7 @@ RUN curl -o "/awscliv2.zip" "https://awscli.amazonaws.com/awscli-exe-linux-x86_6
 
 # Install kubectl
 # renovate: datasource=github-tags depName=kubernetes/kubectl
-ARG KUBECTL_VERSION="1.24.0"
+ARG KUBECTL_VERSION=1.24.0
 RUN curl -LO "https://dl.k8s.io/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl" &&\
     curl -LO "https://dl.k8s.io/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl.sha256" &&\
     echo "$(<kubectl.sha256) kubectl" | sha256sum --check &&\
@@ -69,14 +69,14 @@ RUN curl -LO "https://dl.k8s.io/release/v${KUBECTL_VERSION}/bin/linux/amd64/kube
 
 # Install minikube
 # renovate: datasource=github-tags depName=kubernetes/minikube
-ARG MINIKUBE_VERSION="1.25.2"
+ARG MINIKUBE_VERSION=1.25.2
 RUN curl -LO "https://storage.googleapis.com/minikube/releases/v${MINIKUBE_VERSION}/minikube-${MINIKUBE_VERSION}-0.x86_64.rpm" &&\
     rpm -ivh "minikube-${MINIKUBE_VERSION}-0.x86_64.rpm" &&\
     rm -rf "minikube-${MINIKUBE_VERSION}-0.x86_64.rpm"
 
 # Install helm
 # renovate: datasource=git-tags depName=https://github.com/helm/helm.git
-ARG HELM_VERSION="3.8.2"
+ARG HELM_VERSION=3.8.2
 RUN wget -q "https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz" "https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz.sha256sum" &&\
     sha256sum -c "helm-v${HELM_VERSION}-linux-amd64.tar.gz.sha256sum" &&\
     tar -zxvf "helm-v${HELM_VERSION}-linux-amd64.tar.gz" -C ./usr/local/bin --no-anchored --strip-components 1 helm &&\
@@ -84,23 +84,23 @@ RUN wget -q "https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz" "http
 
 # Install helm plugins
 # renovate: datasource=github-tags depName=databus23/helm-diff
-ARG HELM_DIFF_VERSION="3.4.2"
+ARG HELM_DIFF_VERSION=3.4.2
 # renovate: datasource=github-tags depName=aslafy-z/helm-git
-ARG HELM_GIT_VERSION="0.11.1"
+ARG HELM_GIT_VERSION=0.11.1
 RUN helm plugin install https://github.com/databus23/helm-diff --version "${HELM_DIFF_VERSION}" &&\
     helm plugin install https://github.com/aslafy-z/helm-git --version "${HELM_GIT_VERSION}"
 
 # Install trivy && install dockle
 # renovate: datasource=github-tags depName=aquasecurity/trivy
-ARG TRIVY_VERSION="0.22.0"
+ARG TRIVY_VERSION=0.22.0
 # renovate: datasource=github-tags depName=goodwithtech/dockle
-ARG DOCKLE_VERSION="0.4.3"
+ARG DOCKLE_VERSION=0.4.3
 RUN rpm -ivh "https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.rpm" &&\
     rpm -ivh "https://github.com/goodwithtech/dockle/releases/download/v${DOCKLE_VERSION}/dockle_${DOCKLE_VERSION}_Linux-64bit.rpm"
 
 # Install hadolint
 # renovate: datasource=github-tags depName=hadolint/hadolint
-ARG HADOLINT_VERSION="2.8.0"
+ARG HADOLINT_VERSION=2.8.0
 RUN curl -qLo /usr/local/bin/hadolint "https://github.com/hadolint/hadolint/releases/download/v${HADOLINT_VERSION}/hadolint-Linux-x86_64" &&\
     chmod +x /usr/local/bin/hadolint
 
@@ -124,7 +124,7 @@ RUN curl -L -o "${HOME_DIR}/android-cmdline-tools.zip" https://dl.google.com/and
 
 # Install Flutter SDK and setup.
 # renovate: datasource=git-tags depName=https://github.com/flutter/flutter.git
-ARG FLUTTER_VERSION="2.10.0"
+ARG FLUTTER_VERSION=2.10.0
 ARG FLUTTER_CHANNEL="stable"
 ENV FLUTTER_SDK_ROOT="${HOME_DIR}/flutter"
 ENV PATH=${PATH}:${FLUTTER_SDK_ROOT}/bin
@@ -143,12 +143,12 @@ RUN userdel developer
 
 # Install bundler (required for fastlane)
 # renovate: datasource=github-tags depName=rubygems/rubygems
-ARG BUNDLER_VERSION="2.3.5"
+ARG BUNDLER_VERSION=2.3.5
 RUN gem install "bundler:${BUNDLER_VERSION}"
 
 # Install Gradle
 # renovate: datasource=github-tags depName=gradle/gradle
-ARG GRADLE_VERSION="7.3.3"
+ARG GRADLE_VERSION=7.3.3
 RUN wget -O /tmp/gradle.zip "https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip" &&\
     mkdir /opt/gradle &&\
     unzip -qd /opt/gradle /tmp/gradle.zip &&\
