@@ -18,21 +18,6 @@
       "matchManagers": ["regex"],
       "matchDatasources": ["github-tags"],
       "extractVersion": "^v(?<version>.*)$"
-    },
-    {
-      "matchManagers": ["regex"],
-      "matchDatasources": ["github-tags"],
-      "extractVersion": "^kubernetes-(?<version>.*)$"
-    },
-    {
-      "matchManagers": ["regex"],
-      "matchDatasources": ["git-tags"],
-      "extractVersion": "^go(?<version>.*)$"
-    },
-    {
-      "matchManagers": ["regex"],
-      "matchDatasources": ["git-tags"],
-      "extractVersion": "^cdm/protoc-gen-go-grpc/v(?<version>.*)$"
     }
   ]
 }
