@@ -32,7 +32,7 @@ ENV CHROME_EXECUTABLE="/usr/bin/chromium-browser"
 
 # Install golang
 # renovate: datasource=git-tags depName=https://github.com/golang/go.git
-ARG GO_VERSION=1.17.6
+ARG GO_VERSION=1.18.1
 RUN curl -Lo go.linux-amd64.tar.gz "https://golang.org/dl/go${GO_VERSION}.linux-amd64.tar.gz" &&\
     rm -rf /usr/local/go && tar -C /usr/local -xzf go.linux-amd64.tar.gz &&\
     rm -f go.linux-amd64.tar.gz
