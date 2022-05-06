@@ -44,7 +44,7 @@ ARG YQ_VERSION=4.25.1
 # renovate: datasource=git-tags depName=https://github.com/golang/tools.git
 ARG GOIMPORTS_VERSION=0.1.10
 # renovate: datasource=git-tags depName=https://github.com/grpc/grpc-go.git
-ARG PROTOC_GEN_GO_GRPC_VERSION=1.46.0
+ARG PROTOC_GEN_GO_GRPC_VERSION=1.2.0
 RUN for p in "github.com/mikefarah/yq/v4@v${YQ_VERSION}" "golang.org/x/tools/cmd/goimports@v${GOIMPORTS_VERSION}"\
     "google.golang.org/grpc/cmd/protoc-gen-go-grpc@v${PROTOC_GEN_GO_GRPC_VERSION}" ; do go install "$p" ; done
 
