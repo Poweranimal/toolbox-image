@@ -22,7 +22,11 @@
     {
       "matchManagers": ["regex"],
       "matchDatasources": ["git-tags"],
-      "extractVersion": "^(v|go|cdm\/protoc-gen-go-grpc\/v)?(?<version>.*)$"
+      "extractVersion": "^(v|go)?(?<version>.*)$"
+    },
+    {
+      "matchPackageNames": ["https://github.com/grpc/grpc-go.git"],
+      "extractVersion": "^cmd\/protoc-gen-go-grpc\/v(?<version>.*)$"
     }
   ]
 }
