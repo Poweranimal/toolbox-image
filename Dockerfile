@@ -15,7 +15,8 @@ RUN dnf config-manager --add-repo https://download.docker.com/linux/fedora/docke
 # Install fusion repos.
 ARG FEDORA_VERSION=35
 RUN dnf install -y "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-${FEDORA_VERSION}.noarch.rpm"\
-    "https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-${FEDORA_VERSION}.noarch.rpm"
+    "https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-${FEDORA_VERSION}.noarch.rpm" &&\
+    dnf clean all
 
 # Install additional requirements.
 RUN dnf install -y chromium-100.0.4896.127-1.fc35 docker-ce-cli-1:20.10.14-3.fc35 docker-compose-1.29.2-3.fc35 gh-2.8.0-1.fc35\
@@ -75,7 +76,7 @@ RUN curl -LO "https://storage.googleapis.com/minikube/releases/v${MINIKUBE_VERSI
 # Install helm
 # renovate: datasource=git-tags depName=https://github.com/helm/helm.git
 ARG HELM_VERSION=3.8.2
-RUN wget -q "https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz" "https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz.sha256sum" &&\
+RUN curl -LO "https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz" "https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz.sha256sum" &&\
     sha256sum -c "helm-v${HELM_VERSION}-linux-amd64.tar.gz.sha256sum" &&\
     tar -zxvf "helm-v${HELM_VERSION}-linux-amd64.tar.gz" -C ./usr/local/bin --no-anchored --strip-components 1 helm &&\
     rm -f "helm-v${HELM_VERSION}-linux-amd64.tar.gz" "helm-v${HELM_VERSION}-linux-amd64.tar.gz.sha256sum"
@@ -147,7 +148,7 @@ RUN gem install "bundler:${BUNDLER_VERSION}"
 # Install Gradle
 # renovate: datasource=github-tags depName=gradle/gradle
 ARG GRADLE_VERSION=7.4.2
-RUN wget -O /tmp/gradle.zip "https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip" &&\
+RUN curl -L -o /tmp/gradle.zip "https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip" &&\
     mkdir /opt/gradle &&\
     unzip -qd /opt/gradle /tmp/gradle.zip &&\
     rm -f /tmp/gradle.zip
