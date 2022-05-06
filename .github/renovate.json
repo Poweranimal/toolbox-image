@@ -1,29 +1,10 @@
 {
-  "enabledManagers": ["regex"],
+  "extends": ["github>bluegosolutions/gl-renovatebot-presets:dockerfile-manager"],
   "schedule": [
     "after 3am every day",
     "before 4am every day"
   ],
-  "regexManagers": [
-    {
-      "fileMatch": ["^Dockerfile$"],
-      "matchStrings": [
-        "datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\sARG .*?_VERSION=(?<currentValue>.*)\\s"
-      ],
-      "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
-    }
-  ],
   "packageRules": [
-    {
-      "matchManagers": ["regex"],
-      "matchDatasources": ["github-tags"],
-      "extractVersion": "^(v|kubernetes-)?(?<version>.*)$"
-    },
-    {
-      "matchManagers": ["regex"],
-      "matchDatasources": ["git-tags"],
-      "extractVersion": "^(v|go)?(?<version>.*)$"
-    },
     {
       "matchManagers": ["regex"],
       "matchPackageNames": ["https://github.com/grpc/grpc-go.git"],
