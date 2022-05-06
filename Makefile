@@ -41,6 +41,7 @@ IMAGE_BUILDER_CMD = $(DOCKER) run --rm \
 -v "$(PWD)/.cache/trivy:/home/golane/.cache/trivy:Z" \
 -e DOCKER_USERNAME=$(DOCKER_USERNAME) \
 -e DOCKER_PASSWORD=$(DOCKER_PASSWORD) \
+-e DOCKLE_TIMEOUT="10m" \
 $(IMAGE_BUILDER_EXTRA_ARGS) \
 $(IMAGE_BUILDER_IMAGE)
 
