@@ -1,10 +1,10 @@
 {
   "extends": [
-    "github>bluegosolutions/gl-renovatebot-presets:dockerfile-manager",
-    "github>bluegosolutions/gl-renovatebot-presets:reused-workflow-manager"
+    "github>bluegosolutions/gl-renovatebot-presets:dockerfile-manager"
   ],
   "schedule": [
-    "after 3am every day"
+    "after 3am every day",
+    "before 4am every day"
   ],
   "packageRules": [
     {
@@ -12,6 +12,17 @@
       "matchPackageNames": ["https://github.com/grpc/grpc-go.git"],
       "matchDatasources": ["git-tags"],
       "extractVersion": "^cmd\/protoc-gen-go-grpc\/v(?<version>.*)$"
+    }
+  ],
+  "regexManagers": [
+    {
+        "fileMatch": [
+            "^.github/workflows/.+.yaml$"
+        ],
+        "matchStrings": [
+            "uses: (?<depName>.+?\/.+?(?=\/)).+.yaml@(?<currentValue>.+)"
+        ],
+        "datasourceTemplate": "github-tags"
     }
   ]
 }
