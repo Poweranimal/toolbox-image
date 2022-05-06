@@ -1,5 +1,8 @@
 {
-  "extends": ["github>bluegosolutions/gl-renovatebot-presets:dockerfile-manager"],
+  "extends": [
+    "github>bluegosolutions/gl-renovatebot-presets:dockerfile-manager",
+    "github>bluegosolutions/gl-renovatebot-presets:reused-workflow-manager"
+  ],
   "schedule": [
     "after 3am every day",
     "before 4am every day"
