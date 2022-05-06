@@ -8,13 +8,13 @@ permissions:
   packages: write
 jobs:
   call-test:
-    uses: bluegosolutions/gl-gh-actions-workflows/.github/workflows/test.yaml@v0.3.1
+    uses: bluegosolutions/gl-gh-actions-workflows/.github/workflows/test.yaml@v0.3.0
     secrets:
       username: ${{ secrets.IMAGE_GITHUB_USERNAME }}
       password: ${{ secrets.IMAGE_GITHUB_PASSWORD }}
   call-publish:
     needs: [ call-test ]
-    uses: bluegosolutions/gl-gh-actions-workflows/.github/workflows/publish.yaml@v0.3.1
+    uses: bluegosolutions/gl-gh-actions-workflows/.github/workflows/publish.yaml@v0.3.0
     secrets:
       username: ${{ secrets.IMAGE_GITHUB_USERNAME }}
       password: ${{ secrets.IMAGE_GITHUB_PASSWORD }}
