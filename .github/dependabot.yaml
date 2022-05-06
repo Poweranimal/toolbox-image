@@ -10,3 +10,9 @@ updates:
     schedule:
       interval: "daily"
       time: "03:00"
+registries:
+  ghcr:
+    type: docker-registry
+    url: https://ghcr.io
+    username: ${{ secrets.IMAGE_GITHUB_USERNAME }}
+    password: ${{ secrets.IMAGE_GITHUB_PASSWORD }}

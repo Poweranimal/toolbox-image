@@ -25,7 +25,7 @@ DOCKER_SOCK					?= /var/run/docker.sock
 
 # Parameters
 GITHUB_TOKEN				?= $(call get_git_credential,password)
-IMAGE_NAME					?= ghcr.io/bluegosolutions/gl-image-builder/builder
+IMAGE_NAME					?= ghcr.io/poweranimal/toolbox-image
 IMAGE_BUILDER_IMAGE			?= $(shell $(GREP) -oP '(?<=FROM ).+(?= AS image-builder)' dep.dockerfile)
 IMAGE_BUILDER_EXTRA_ARGS	?= -u root:root
 CHECKED_BUILD_EXTRA_ARGS	?=
