@@ -117,8 +117,8 @@ RUN curl -L -o "${HOME_DIR}/android-cmdline-tools.zip" https://dl.google.com/and
     install -d "${ANDROID_SDK_ROOT}" &&\
     unzip -q "${HOME_DIR}/android-cmdline-tools.zip" -d "${ANDROID_SDK_ROOT}" &&\
     rm -rf "${HOME_DIR}/android-cmdline-tools.zip" &&\
-    yes | "${ANDROID_SDK_MANAGER}" --sdk_root="${ANDROID_SDK_ROOT}" --licenses &&\
-    yes | "${ANDROID_SDK_MANAGER}" --sdk_root="${ANDROID_SDK_ROOT}" emulator &&\
+    yes | "${ANDROID_SDK_MANAGER}" --sdk_root="${ANDROID_SDK_ROOT}" --licenses || true &&\
+    yes | "${ANDROID_SDK_MANAGER}" --sdk_root="${ANDROID_SDK_ROOT}" emulator || true &&\
     "${ANDROID_SDK_MANAGER}" --sdk_root="${ANDROID_SDK_ROOT}" "build-tools;29.0.3" "cmdline-tools;latest"\
     "patcher;v4" "platforms;android-31" "platform-tools" "sources;android-31"
 
