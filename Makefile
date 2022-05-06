@@ -33,7 +33,7 @@ VERSION_APP					?= v0.0.0
 VERSION_APP_IMAGE			?= $(shell $(SED) 's/v\{0,1\}\([0-9]*\..*\)/\1/g' <<< $(VERSION_APP))
 DOCKER_USERNAME				?= $(call get_git_credential,username)
 DOCKER_PASSWORD				?= $(call get_git_credential,password)
-TARGET_PLATFORMS			?= linux/arm64,linux/amd64
+TARGET_PLATFORMS			?= linux/amd64
 
 IMAGE_BUILDER_CMD = $(DOCKER) run --rm \
 -v "$(PWD):/app:Z" \
