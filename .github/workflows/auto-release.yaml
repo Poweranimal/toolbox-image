@@ -9,6 +9,7 @@ jobs:
   call-increment-tag-version:
     uses: bluegosolutions/gl-gh-actions-workflows/.github/workflows/increment-tag-version.yaml@v0.3.1
   call-publish:
+    if: ${{ (needs.call-increment-tag-version.outputs.latest_tag_sha != '') && (github.sha != needs.call-increment-tag-version.outputs.latest_tag_sha) }}
     needs: [ call-increment-tag-version ]
     uses: bluegosolutions/gl-gh-actions-workflows/.github/workflows/publish.yaml@v0.3.1
     secrets:
