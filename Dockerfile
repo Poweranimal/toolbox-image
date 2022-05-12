@@ -19,7 +19,7 @@ RUN dnf install -y "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-rel
     dnf clean all
 
 # Install additional requirements.
-RUN dnf install -y chromium-100.0.4896.127-1.fc35 docker-ce-cli-1:20.10.14-3.fc35 docker-compose-1.29.2-3.fc35 gh-2.8.0-1.fc35\
+RUN dnf install -y chromium-100.0.4896.127-1.fc35 docker-ce-cli-1:20.10.14-3.fc35 docker-compose-1.29.2-3.fc35 gh-2.9.0-1.fc35\
     google-noto-emoji-color-fonts-20200916-3.fc35 java-1.8.0-openjdk-devel-1:1.8.0.332.b09-1.fc35 java-11-openjdk-devel-1:11.0.15.0.10-1.fc35\
     jq-1.6-10.fc35 libvirt-client-7.6.0-5.fc35 libXScrnSaver-1.2.3-9.fc35 make-1:4.3-6.fc35 openssl-1:1.1.1n-1.fc35 podman-remote-3:3.4.7-1.fc35\
     akmod-nvidia-3:510.60.02-1.fc35 ImageMagick-1:6.9.12.44-1.fc35 mesa-dri-drivers-21.3.8-2.fc35 ruby-devel-3.0.2-151.fc35\
