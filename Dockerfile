@@ -1,4 +1,4 @@
-FROM registry.fedoraproject.org/fedora-toolbox:35
+FROM registry.fedoraproject.org/fedora-toolbox:36
 LABEL summary="Base image for feadora toolbox" \
       maintainer="Felix Proehl <felix@golane.de>"
 
@@ -13,18 +13,18 @@ RUN dnf config-manager --add-repo https://download.docker.com/linux/fedora/docke
     dnf config-manager --add-repo https://cli.github.com/packages/rpm/gh-cli.repo
 
 # Install fusion repos.
-ARG FEDORA_VERSION=35
+ARG FEDORA_VERSION=36
 RUN dnf install -y "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-${FEDORA_VERSION}.noarch.rpm"\
     "https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-${FEDORA_VERSION}.noarch.rpm" &&\
     dnf clean all
 
 # Install additional requirements.
-RUN dnf install -y chromium-100.0.4896.127-1.fc35 docker-ce-cli-1:20.10.14-3.fc35 docker-compose-1.29.2-3.fc35 gh-2.9.0-1.fc35\
-    google-noto-emoji-color-fonts-20200916-3.fc35 java-1.8.0-openjdk-devel-1:1.8.0.332.b09-1.fc35 java-11-openjdk-devel-1:11.0.15.0.10-1.fc35\
-    jq-1.6-10.fc35 libvirt-client-7.6.0-5.fc35 libXScrnSaver-1.2.3-9.fc35 make-1:4.3-6.fc35 openssl-1:1.1.1n-1.fc35 podman-remote-3:3.4.7-1.fc35\
-    akmod-nvidia-3:510.60.02-1.fc35 ImageMagick-1:6.9.12.44-1.fc35 mesa-dri-drivers-21.3.8-2.fc35 ruby-devel-3.0.2-151.fc35\
-    gcc-11.3.1-2.fc35.x86_64 gcc-c++-11.3.1-2.fc35.x86_64 clang-tools-extra-13.0.0-3.fc35 cmake-3.22.2-1.fc35 protobuf-compiler-3.14.0-7.fc35\
-    protobuf-devel-3.14.0-7.fc35 upx-3.96-10.fc35 &&\
+RUN dnf install -y chromium-100.0.4896.127-1.fc36 docker-ce-cli-1:20.10.16-3.fc36 docker-compose-1.29.2-4.fc36 gh-2.9.0-1.fc36\
+    google-noto-emoji-color-fonts-20211102-1.fc36 java-1.8.0-openjdk-devel-1:1.8.0.332.b09-1.fc36 java-11-openjdk-devel-1:11.0.15.0.10-1.fc36\
+    jq-1.6-13.fc36 libvirt-client-8.1.0-2.fc36 libXScrnSaver-1.2.3-10.fc36 make-1:4.3-7.fc36 openssl-1:3.0.2-5.fc36 podman-remote-3:4.1.0-1.fc36\
+    akmod-nvidia-3:510.68.02-1.fc36 ImageMagick-1:6.9.12.44-1.fc36 mesa-dri-drivers-22.0.3-1.fc36 ruby-devel-3.1.2-164.fc36\
+    gcc-12.1.1-1.fc36 gcc-c++-12.1.1-1.fc36 clang-tools-extra-14.0.0-1.fc36 cmake-3.22.2-1.fc36 protobuf-compiler-3.19.4-2.fc36\
+    protobuf-devel-3.19.4-2.fc36 upx-3.96-11.fc36 &&\
     dnf clean all
 ENV DOCKER_HOST="unix:///run/user/1000/podman/podman.sock"
 ENV CHROME_EXECUTABLE="/usr/bin/chromium-browser"
