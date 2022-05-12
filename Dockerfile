@@ -158,7 +158,7 @@ ENV PATH="${PATH}:/opt/gradle/bin"
 # Fix CIS-DI-0008
 RUN chmod u-s /usr/bin/newgrp /usr/sbin/grub2-set-bootflag /usr/bin/umount /usr/sbin/pam_timestamp_check /usr/bin/pkexec\
     /usr/bin/su /usr/bin/mount /usr/bin/passwd /usr/bin/gpasswd /usr/lib64/chromium-browser/chrome-sandbox /usr/bin/sudo\
-    /usr/bin/chage /usr/libexec/Xorg.wrap /usr/lib/polkit-1/polkit-agent-helper-1 /usr/sbin/unix_chkpwd &&\
+    /usr/bin/chage /usr/libexec/Xorg.wrap /usr/lib/polkit-1/polkit-agent-helper-1 /usr/sbin/unix_chkpwd /usr/bin/fusermount &&\
     chmod g-s /usr/libexec/openssh/ssh-keysign /usr/libexec/utempter/utempter /usr/bin/write
 
 RUN rm -rf /tmp/*
