@@ -124,7 +124,7 @@ RUN curl -L -o "${HOME_DIR}/android-cmdline-tools.zip" https://dl.google.com/and
 
 # Install Flutter SDK and setup.
 # renovate: datasource=git-tags depName=https://github.com/flutter/flutter.git
-ARG FLUTTER_VERSION=3.0.0
+ARG FLUTTER_VERSION=3.0.1
 ARG FLUTTER_CHANNEL="stable"
 ENV FLUTTER_SDK_ROOT="${HOME_DIR}/flutter"
 ENV PATH=${PATH}:${FLUTTER_SDK_ROOT}/bin
