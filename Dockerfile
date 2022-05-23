@@ -50,7 +50,7 @@ RUN for p in "github.com/mikefarah/yq/v4@v${YQ_VERSION}" "golang.org/x/tools/cmd
 
 # Install AWS CLI.
 # renovate: datasource=git-tags depName=https://github.com/aws/aws-cli.git
-ARG AWS_CLI_VERSION=2.7.0
+ARG AWS_CLI_VERSION=2.7.2
 RUN curl -o "/awscliv2.zip" "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-${AWS_CLI_VERSION}.zip" &&\
     unzip -q "/awscliv2.zip" &&\
     ./aws/install &&\
@@ -75,7 +75,7 @@ RUN curl -LO "https://storage.googleapis.com/minikube/releases/v${MINIKUBE_VERSI
 
 # Install helm
 # renovate: datasource=git-tags depName=https://github.com/helm/helm.git
-ARG HELM_VERSION=3.8.2
+ARG HELM_VERSION=3.9.0
 RUN curl -LO "https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz" &&\
     curl -LO "https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz.sha256sum" &&\
     sha256sum -c "helm-v${HELM_VERSION}-linux-amd64.tar.gz.sha256sum" &&\
@@ -92,7 +92,7 @@ RUN helm plugin install https://github.com/databus23/helm-diff --version "${HELM
 
 # Install trivy && install dockle
 # renovate: datasource=github-tags depName=aquasecurity/trivy
-ARG TRIVY_VERSION=0.27.1
+ARG TRIVY_VERSION=0.28.0
 # renovate: datasource=github-tags depName=goodwithtech/dockle
 ARG DOCKLE_VERSION=0.4.5
 RUN rpm -ivh "https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.rpm" &&\
@@ -124,7 +124,7 @@ RUN curl -L -o "${HOME_DIR}/android-cmdline-tools.zip" https://dl.google.com/and
 
 # Install Flutter SDK and setup.
 # renovate: datasource=git-tags depName=https://github.com/flutter/flutter.git
-ARG FLUTTER_VERSION=3.0.0
+ARG FLUTTER_VERSION=3.0.1
 ARG FLUTTER_CHANNEL="stable"
 ENV FLUTTER_SDK_ROOT="${HOME_DIR}/flutter"
 ENV PATH=${PATH}:${FLUTTER_SDK_ROOT}/bin
@@ -143,7 +143,7 @@ RUN userdel developer
 
 # Install bundler (required for fastlane)
 # renovate: datasource=rubygems depName=bundler
-ARG BUNDLER_VERSION=2.3.13
+ARG BUNDLER_VERSION=2.3.14
 RUN gem install "bundler:${BUNDLER_VERSION}"
 
 # Install Gradle
