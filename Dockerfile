@@ -50,7 +50,7 @@ RUN for p in "github.com/mikefarah/yq/v4@v${YQ_VERSION}" "golang.org/x/tools/cmd
 
 # Install AWS CLI.
 # renovate: datasource=git-tags depName=https://github.com/aws/aws-cli.git
-ARG AWS_CLI_VERSION=2.7.3
+ARG AWS_CLI_VERSION=2.7.4
 RUN curl -o "/awscliv2.zip" "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-${AWS_CLI_VERSION}.zip" &&\
     unzip -q "/awscliv2.zip" &&\
     ./aws/install &&\
