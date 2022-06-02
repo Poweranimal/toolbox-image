@@ -40,7 +40,7 @@ ENV GOPRIVATE=github.com/bluegosolutions
 
 # Install go packages
 # renovate: datasource=github-tags depName=mikefarah/yq
-ARG YQ_VERSION=4.25.1
+ARG YQ_VERSION=4.25.2
 # renovate: datasource=git-tags depName=https://github.com/golang/tools.git
 ARG GOIMPORTS_VERSION=0.1.10
 # renovate: datasource=git-tags depName=https://github.com/grpc/grpc-go.git
@@ -50,7 +50,7 @@ RUN for p in "github.com/mikefarah/yq/v4@v${YQ_VERSION}" "golang.org/x/tools/cmd
 
 # Install AWS CLI.
 # renovate: datasource=git-tags depName=https://github.com/aws/aws-cli.git
-ARG AWS_CLI_VERSION=2.7.2
+ARG AWS_CLI_VERSION=2.7.4
 RUN curl -o "/awscliv2.zip" "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-${AWS_CLI_VERSION}.zip" &&\
     unzip -q "/awscliv2.zip" &&\
     ./aws/install &&\
@@ -58,7 +58,7 @@ RUN curl -o "/awscliv2.zip" "https://awscli.amazonaws.com/awscli-exe-linux-x86_6
 
 # Install kubectl
 # renovate: datasource=github-tags depName=kubernetes/kubectl
-ARG KUBECTL_VERSION=1.24.0
+ARG KUBECTL_VERSION=1.24.1
 RUN curl -LO "https://dl.k8s.io/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl" &&\
     curl -LO "https://dl.k8s.io/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl.sha256" &&\
     echo "$(<kubectl.sha256) kubectl" | sha256sum --check &&\
@@ -92,7 +92,7 @@ RUN helm plugin install https://github.com/databus23/helm-diff --version "${HELM
 
 # Install trivy && install dockle
 # renovate: datasource=github-tags depName=aquasecurity/trivy
-ARG TRIVY_VERSION=0.28.0
+ARG TRIVY_VERSION=0.28.1
 # renovate: datasource=github-tags depName=goodwithtech/dockle
 ARG DOCKLE_VERSION=0.4.5
 RUN rpm -ivh "https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.rpm" &&\
