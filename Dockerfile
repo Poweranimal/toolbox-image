@@ -19,10 +19,10 @@ RUN dnf install -y "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-rel
     dnf clean all
 
 # Install additional requirements.
-RUN dnf install -y chromium-100.0.4896.127-1.fc36 docker-ce-cli-1:20.10.16-3.fc36 docker-compose-1.29.2-4.fc36 gh-2.10.1-1.fc36\
+RUN dnf install -y chromium-100.0.4896.127-1.fc36 docker-ce-cli-1:20.10.16-3.fc36 docker-compose-1.29.2-4.fc36 gh-2.11.3-2.fc36\
     google-noto-emoji-color-fonts-20211102-1.fc36 java-1.8.0-openjdk-devel-1:1.8.0.332.b09-1.fc36 java-11-openjdk-devel-1:11.0.15.0.10-1.fc36\
-    jq-1.6-13.fc36 libvirt-client-8.1.0-2.fc36 libXScrnSaver-1.2.3-10.fc36 make-1:4.3-7.fc36 openssl-1:3.0.2-5.fc36 podman-remote-3:4.1.0-1.fc36\
-    akmod-nvidia-3:510.68.02-1.fc36 ImageMagick-1:6.9.12.44-1.fc36 mesa-dri-drivers-22.0.3-1.fc36 ruby-devel-3.1.2-164.fc36\
+    jq-1.6-13.fc36 libvirt-client-8.1.0-2.fc36 libXScrnSaver-1.2.3-10.fc36 make-1:4.3-7.fc36 openssl-1:3.0.3-1.fc36 podman-remote-3:4.1.0-8.fc36\
+    akmod-nvidia-3:510.68.02-1.fc36 ImageMagick-1:6.9.12.44-1.fc36 mesa-dri-drivers-22.1.1-1.fc36 ruby-devel-3.1.2-164.fc36\
     gcc-12.1.1-1.fc36 gcc-c++-12.1.1-1.fc36 clang-tools-extra-14.0.0-1.fc36 cmake-3.22.2-1.fc36 protobuf-compiler-3.19.4-2.fc36\
     protobuf-devel-3.19.4-2.fc36 upx-3.96-11.fc36 &&\
     dnf clean all
