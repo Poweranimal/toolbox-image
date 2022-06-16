@@ -92,7 +92,7 @@ RUN helm plugin install https://github.com/databus23/helm-diff --version "${HELM
 
 # Install trivy && install dockle
 # renovate: datasource=github-tags depName=aquasecurity/trivy
-ARG TRIVY_VERSION=0.28.1
+ARG TRIVY_VERSION=0.29.0
 # renovate: datasource=github-tags depName=goodwithtech/dockle
 ARG DOCKLE_VERSION=0.4.5
 RUN rpm -ivh "https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.rpm" &&\
