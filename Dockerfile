@@ -162,5 +162,3 @@ RUN chmod u-s /usr/bin/newgrp /usr/sbin/grub2-set-bootflag /usr/bin/umount /usr/
     chmod g-s /usr/libexec/openssh/ssh-keysign /usr/libexec/utempter/utempter /usr/bin/write
 
 RUN rm -rf /tmp/*
-
-CMD [ "/bin/sh" ]
