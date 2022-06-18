@@ -56,12 +56,14 @@ CVE-2022-24769
 GHSA-5j5w-g665-5m35
 GHSA-qq97-vm5h-rrhg
 GHSA-77vh-xpmg-72qh
+CVE-2022-29162
 
 # (docker-buildx)
 CVE-2021-41092
 CVE-2022-27191
 CVE-2022-24769
 GHSA-77vh-xpmg-72qh
+CVE-2022-29162
 
 #(docker-scan)
 CVE-2021-43816
@@ -75,6 +77,7 @@ CVE-2022-24769
 GHSA-5j5w-g665-5m35
 GHSA-qq97-vm5h-rrhg
 GHSA-77vh-xpmg-72qh
+CVE-2022-29162
 
 # (dockle)
 CVE-2022-23648
