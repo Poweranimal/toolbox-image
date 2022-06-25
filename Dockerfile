@@ -19,12 +19,9 @@ RUN dnf install -y "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-rel
     dnf clean all
 
 # Install additional requirements.
-RUN dnf install -y chromium-100.0.4896.127-1.fc36 docker-ce-cli-1:20.10.16-3.fc36 docker-compose-1.29.2-4.fc36 gh-2.11.3-2.fc36\
-    google-noto-emoji-color-fonts-20211102-1.fc36 java-1.8.0-openjdk-devel-1:1.8.0.332.b09-1.fc36 java-11-openjdk-devel-1:11.0.15.0.10-1.fc36\
-    jq-1.6-13.fc36 libvirt-client-8.1.0-2.fc36 libXScrnSaver-1.2.3-10.fc36 make-1:4.3-7.fc36 openssl-1:3.0.3-1.fc36 podman-remote-3:4.1.0-8.fc36\
-    akmod-nvidia-3:510.68.02-1.fc36 ImageMagick-1:6.9.12.44-1.fc36 mesa-dri-drivers-22.1.1-1.fc36 ruby-devel-3.1.2-164.fc36\
-    gcc-12.1.1-1.fc36 gcc-c++-12.1.1-1.fc36 clang-tools-extra-14.0.0-1.fc36 cmake-3.22.2-1.fc36 protobuf-compiler-3.19.4-2.fc36\
-    protobuf-devel-3.19.4-2.fc36 upx-3.96-11.fc36 &&\
+RUN dnf install -y chromium docker-ce-cli docker-compose gh google-noto-emoji-color-fonts java java-11-openjdk-devel\
+    jq libvirt-client libXScrnSaver make openssl podman-remote akmod-nvidia ImageMagick mesa-dri-drivers ruby-devel\
+    gcc gcc-c++ clang-tools-extra cmake protobuf-compiler protobuf-devel upx &&\
     dnf clean all
 ENV DOCKER_HOST="unix:///run/user/1000/podman/podman.sock"
 ENV CHROME_EXECUTABLE="/usr/bin/chromium-browser"
