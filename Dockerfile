@@ -19,6 +19,7 @@ RUN dnf install -y "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-rel
     dnf clean all
 
 # Install additional requirements.
+# hadolint ignore=DL3041
 RUN dnf install -y chromium docker-ce-cli docker-compose gh google-noto-emoji-color-fonts java java-11-openjdk-devel\
     jq libvirt-client libXScrnSaver make openssl podman-remote akmod-nvidia ImageMagick mesa-dri-drivers ruby-devel\
     gcc gcc-c++ clang-tools-extra cmake protobuf-compiler protobuf-devel upx &&\
