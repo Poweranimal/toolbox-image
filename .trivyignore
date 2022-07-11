@@ -33,7 +33,8 @@ CVE-2022-25647
 GHSA-wrvw-hg22-4m67
 CVE-2021-22573
 CVE-2020-29582
-
+CVE-2016-5725
+CVE-2022-2047
 
 # (helm-diff)
 CVE-2022-23648
@@ -60,6 +61,7 @@ GHSA-qq97-vm5h-rrhg
 GHSA-77vh-xpmg-72qh
 CVE-2022-29162
 CVE-2022-28948
+GHSA-5ffw-gxpp-mxpf
 
 # (docker-buildx)
 CVE-2021-41092
@@ -67,6 +69,7 @@ CVE-2022-27191
 CVE-2022-24769
 GHSA-77vh-xpmg-72qh
 CVE-2022-29162
+GHSA-5ffw-gxpp-mxpf
 
 #(docker-scan)
 CVE-2021-43816
@@ -84,16 +87,23 @@ CVE-2022-29162
 CVE-2022-24329
 CVE-2020-29582
 CVE-2022-24329
+GHSA-5ffw-gxpp-mxpf
 
 # (dockle)
 CVE-2022-23648
 CVE-2022-24769
 GO-2022-0391
+GHSA-5ffw-gxpp-mxpf
 
 # (helm)
 GMS-2022-20
 CVE-2022-27191
+GHSA-5ffw-gxpp-mxpf
+
+# (helm-diff)
+GHSA-5ffw-gxpp-mxpf
 
 # (trivy)
 GMS-2022-20
 CVE-2022-27191
+GHSA-5ffw-gxpp-mxpf
