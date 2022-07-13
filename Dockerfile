@@ -73,7 +73,7 @@ RUN curl -LO "https://storage.googleapis.com/minikube/releases/v${MINIKUBE_VERSI
 
 # Install helm
 # renovate: datasource=git-tags depName=https://github.com/helm/helm.git
-ARG HELM_VERSION=3.9.0
+ARG HELM_VERSION=3.9.1
 RUN curl -LO "https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz" &&\
     curl -LO "https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz.sha256sum" &&\
     sha256sum -c "helm-v${HELM_VERSION}-linux-amd64.tar.gz.sha256sum" &&\
