@@ -56,7 +56,7 @@ RUN curl -o "/awscliv2.zip" "https://awscli.amazonaws.com/awscli-exe-linux-x86_6
 
 # Install kubectl
 # renovate: datasource=github-tags depName=kubernetes/kubectl
-ARG KUBECTL_VERSION=1.24.2
+ARG KUBECTL_VERSION=1.24.3
 RUN curl -LO "https://dl.k8s.io/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl" &&\
     curl -LO "https://dl.k8s.io/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl.sha256" &&\
     echo "$(<kubectl.sha256) kubectl" | sha256sum --check &&\
