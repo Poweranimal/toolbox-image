@@ -38,7 +38,7 @@ ENV GOPRIVATE=github.com/bluegosolutions
 
 # Install go packages
 # renovate: datasource=github-tags depName=mikefarah/yq
-ARG YQ_VERSION=4.25.3
+ARG YQ_VERSION=4.26.1
 # renovate: datasource=git-tags depName=https://github.com/golang/tools.git
 ARG GOIMPORTS_VERSION=0.1.11
 # renovate: datasource=git-tags depName=https://github.com/grpc/grpc-go.git
