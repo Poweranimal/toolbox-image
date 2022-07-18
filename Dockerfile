@@ -29,7 +29,7 @@ ENV CHROME_EXECUTABLE="/usr/bin/chromium-browser"
 
 # Install golang
 # renovate: datasource=git-tags depName=https://github.com/golang/go.git
-ARG GO_VERSION=1.18.3
+ARG GO_VERSION=1.18.4
 RUN curl -Lo go.linux-amd64.tar.gz "https://golang.org/dl/go${GO_VERSION}.linux-amd64.tar.gz" &&\
     rm -rf /usr/local/go && tar -C /usr/local -xzf go.linux-amd64.tar.gz &&\
     rm -f go.linux-amd64.tar.gz
@@ -38,7 +38,7 @@ ENV GOPRIVATE=github.com/bluegosolutions
 
 # Install go packages
 # renovate: datasource=github-tags depName=mikefarah/yq
-ARG YQ_VERSION=4.25.3
+ARG YQ_VERSION=4.26.1
 # renovate: datasource=git-tags depName=https://github.com/golang/tools.git
 ARG GOIMPORTS_VERSION=0.1.11
 # renovate: datasource=git-tags depName=https://github.com/grpc/grpc-go.git
@@ -48,7 +48,7 @@ RUN for p in "github.com/mikefarah/yq/v4@v${YQ_VERSION}" "golang.org/x/tools/cmd
 
 # Install AWS CLI.
 # renovate: datasource=git-tags depName=https://github.com/aws/aws-cli.git
-ARG AWS_CLI_VERSION=2.7.13
+ARG AWS_CLI_VERSION=2.7.15
 RUN curl -o "/awscliv2.zip" "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-${AWS_CLI_VERSION}.zip" &&\
     unzip -q "/awscliv2.zip" &&\
     ./aws/install &&\
@@ -56,7 +56,7 @@ RUN curl -o "/awscliv2.zip" "https://awscli.amazonaws.com/awscli-exe-linux-x86_6
 
 # Install kubectl
 # renovate: datasource=github-tags depName=kubernetes/kubectl
-ARG KUBECTL_VERSION=1.24.2
+ARG KUBECTL_VERSION=1.24.3
 RUN curl -LO "https://dl.k8s.io/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl" &&\
     curl -LO "https://dl.k8s.io/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl.sha256" &&\
     echo "$(<kubectl.sha256) kubectl" | sha256sum --check &&\
@@ -73,7 +73,7 @@ RUN curl -LO "https://storage.googleapis.com/minikube/releases/v${MINIKUBE_VERSI
 
 # Install helm
 # renovate: datasource=git-tags depName=https://github.com/helm/helm.git
-ARG HELM_VERSION=3.9.0
+ARG HELM_VERSION=3.9.1
 RUN curl -LO "https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz" &&\
     curl -LO "https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz.sha256sum" &&\
     sha256sum -c "helm-v${HELM_VERSION}-linux-amd64.tar.gz.sha256sum" &&\
@@ -141,7 +141,7 @@ RUN userdel developer
 
 # Install bundler (required for fastlane)
 # renovate: datasource=rubygems depName=bundler
-ARG BUNDLER_VERSION=2.3.17
+ARG BUNDLER_VERSION=2.3.18
 RUN gem install "bundler:${BUNDLER_VERSION}"
 
 # Install Gradle
