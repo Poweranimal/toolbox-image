@@ -8,7 +8,7 @@ permissions:
   packages: write
 jobs:
   call-publish:
-    uses: bluegosolutions/gl-gh-actions-workflows/.github/workflows/publish.yaml@v0.3.1
+    uses: bluegosolutions/gl-gh-actions-workflows/.github/workflows/publish.yaml@0.4.1
     secrets:
       username: ${{ secrets.IMAGE_GITHUB_USERNAME }}
       password: ${{ secrets.IMAGE_GITHUB_PASSWORD }}

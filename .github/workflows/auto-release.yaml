@@ -7,11 +7,11 @@ permissions:
   packages: write
 jobs:
   call-increment-tag-version:
-    uses: bluegosolutions/gl-gh-actions-workflows/.github/workflows/increment-tag-version.yaml@v0.3.1
+    uses: bluegosolutions/gl-gh-actions-workflows/.github/workflows/increment-tag-version.yaml@0.4.1
   call-publish:
     if: ${{ (needs.call-increment-tag-version.outputs.latest_tag_sha != '') && (github.sha != needs.call-increment-tag-version.outputs.latest_tag_sha) }}
     needs: [ call-increment-tag-version ]
-    uses: bluegosolutions/gl-gh-actions-workflows/.github/workflows/publish.yaml@v0.3.1
+    uses: bluegosolutions/gl-gh-actions-workflows/.github/workflows/publish.yaml@0.4.1
     secrets:
       username: ${{ secrets.IMAGE_GITHUB_USERNAME }}
       password: ${{ secrets.IMAGE_GITHUB_PASSWORD }}
