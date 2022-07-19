@@ -4,8 +4,8 @@
     "github>bluegosolutions/gl-renovatebot-presets:reused-workflow-manager"
   ],
   "schedule": [
-    "after 3am every day",
-    "before 4am every day"
+    "after 3am",
+    "before 4am"
   ],
   "packageRules": [
     {

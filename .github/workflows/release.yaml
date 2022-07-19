@@ -8,9 +8,11 @@ permissions:
   packages: write
 jobs:
   call-publish:
-    uses: bluegosolutions/gl-gh-actions-workflows/.github/workflows/publish.yaml@v0.3.1
+    uses: bluegosolutions/gl-gh-actions-workflows/.github/workflows/publish.yaml@v0.4.1
     secrets:
       username: ${{ secrets.IMAGE_GITHUB_USERNAME }}
       password: ${{ secrets.IMAGE_GITHUB_PASSWORD }}
+      slack_bot_token: ${{ secrets.SLACK_BOT_TOKEN_GITHUB_ACTIONS }}
     with:
       app_version: ${{ github.ref_name }}
+      enable_qemu: true
