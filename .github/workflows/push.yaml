@@ -7,7 +7,7 @@ on:
       - '**'
 jobs:
   call-test:
-    uses: bluegosolutions/gl-gh-actions-workflows/.github/workflows/test.yaml@v0.4.1
+    uses: bluegosolutions/gl-gh-actions-workflows/.github/workflows/test.yaml@v0.4.2
     secrets:
       username: ${{ secrets.IMAGE_GITHUB_USERNAME }}
       password: ${{ secrets.IMAGE_GITHUB_PASSWORD }}
