@@ -48,7 +48,7 @@ RUN for p in "github.com/mikefarah/yq/v4@v${YQ_VERSION}" "golang.org/x/tools/cmd
 
 # Install AWS CLI.
 # renovate: datasource=git-tags depName=https://github.com/aws/aws-cli.git
-ARG AWS_CLI_VERSION=2.7.16
+ARG AWS_CLI_VERSION=2.7.17
 RUN curl -o "/awscliv2.zip" "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-${AWS_CLI_VERSION}.zip" &&\
     unzip -q "/awscliv2.zip" &&\
     ./aws/install &&\
@@ -90,7 +90,7 @@ RUN helm plugin install https://github.com/databus23/helm-diff --version "${HELM
 
 # Install trivy && install dockle
 # renovate: datasource=github-tags depName=aquasecurity/trivy
-ARG TRIVY_VERSION=0.30.0
+ARG TRIVY_VERSION=0.30.1
 # renovate: datasource=github-tags depName=goodwithtech/dockle
 ARG DOCKLE_VERSION=0.4.5
 RUN rpm -ivh "https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.rpm" &&\
@@ -122,7 +122,7 @@ RUN curl -L -o "${HOME_DIR}/android-cmdline-tools.zip" https://dl.google.com/and
 
 # Install Flutter SDK and setup.
 # renovate: datasource=git-tags depName=https://github.com/flutter/flutter.git
-ARG FLUTTER_VERSION=3.0.2
+ARG FLUTTER_VERSION=3.0.5
 ARG FLUTTER_CHANNEL="stable"
 ENV FLUTTER_SDK_ROOT="${HOME_DIR}/flutter"
 ENV PATH=${PATH}:${FLUTTER_SDK_ROOT}/bin
@@ -146,8 +146,8 @@ RUN gem install "bundler:${BUNDLER_VERSION}"
 
 # Install Gradle
 # renovate: datasource=github-tags depName=gradle/gradle
-ARG GRADLE_VERSION=7.4.2
-RUN curl -L -o /tmp/gradle.zip "https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip" &&\
+ARG GRADLE_VERSION=7.5.0
+RUN curl -L -o /tmp/gradle.zip "https://services.gradle.org/distributions/gradle-$(sed -e 's/.0$//' <<< "${GRADLE_VERSION}")-bin.zip" &&\
     mkdir /opt/gradle &&\
     unzip -qd /opt/gradle /tmp/gradle.zip &&\
     rm -f /tmp/gradle.zip
