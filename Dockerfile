@@ -73,7 +73,7 @@ RUN curl -LO "https://storage.googleapis.com/minikube/releases/v${MINIKUBE_VERSI
 
 # Install helm
 # renovate: datasource=git-tags depName=https://github.com/helm/helm.git
-ARG HELM_VERSION=3.9.1
+ARG HELM_VERSION=3.9.2
 RUN curl -LO "https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz" &&\
     curl -LO "https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz.sha256sum" &&\
     sha256sum -c "helm-v${HELM_VERSION}-linux-amd64.tar.gz.sha256sum" &&\
@@ -90,7 +90,7 @@ RUN helm plugin install https://github.com/databus23/helm-diff --version "${HELM
 
 # Install trivy && install dockle
 # renovate: datasource=github-tags depName=aquasecurity/trivy
-ARG TRIVY_VERSION=0.30.1
+ARG TRIVY_VERSION=0.30.2
 # renovate: datasource=github-tags depName=goodwithtech/dockle
 ARG DOCKLE_VERSION=0.4.5
 RUN rpm -ivh "https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.rpm" &&\
