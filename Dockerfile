@@ -102,6 +102,13 @@ ARG HADOLINT_VERSION=2.10.0
 RUN curl -qLo /usr/local/bin/hadolint "https://github.com/hadolint/hadolint/releases/download/v${HADOLINT_VERSION}/hadolint-Linux-x86_64" &&\
     chmod +x /usr/local/bin/hadolint
 
+# Install buf
+# renovate: datasource=github-tags depName=bufbuild/buf
+ARG BUF_VERSION=1.6.0
+ARG TARGETPLATFORM
+RUN curl -Ls "https://github.com/bufbuild/buf/releases/download/v${BUF_VERSION}/buf-Linux-x86_64.tar.gz" |\
+    tar -xvzf - -C /usr/local/bin --strip-components 2 --wildcards 'buf/bin/*'
+
 #### Install Android and Flutter ####
 ENV HOME_DIR="/var/lib/developer"
 RUN useradd -u 1000 -U -d ${HOME_DIR} developer
