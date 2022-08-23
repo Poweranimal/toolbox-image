@@ -59,6 +59,7 @@ RUN curl -o "/awscliv2.zip" "https://awscli.amazonaws.com/awscli-exe-linux-x86_6
 ARG AWS_SESSION_MANAGER=1.2.339.0
 RUN curl -s "https://s3.amazonaws.com/session-manager-downloads/plugin/${AWS_SESSION_MANAGER}/linux_64bit/session-manager-plugin.rpm" -o "session-manager-plugin.rpm" && \
     dnf install -y session-manager-plugin.rpm && \
+    dnf clean all && \
     rm -f session-manager-plugin.rpm
 
 # Install kubectl
