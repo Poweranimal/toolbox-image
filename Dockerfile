@@ -54,6 +54,13 @@ RUN curl -o "/awscliv2.zip" "https://awscli.amazonaws.com/awscli-exe-linux-x86_6
     ./aws/install &&\
     rm -rf "/awscliv2.zip" /aws
 
+# Install AWS Session Manager
+# renovate: datasource=git-tags depName=https://github.com/aws/session-manager-plugin.git
+ARG AWS_SESSION_MANAGER=1.2.339.0
+RUN curl -s "https://s3.amazonaws.com/session-manager-downloads/plugin/${AWS_SESSION_MANAGER}/linux_64bit/session-manager-plugin.rpm" -o "session-manager-plugin.rpm" && \
+    dnf install -y session-manager-plugin.rpm && \
+    rm -f session-manager-plugin.rpm
+
 # Install kubectl
 # renovate: datasource=github-tags depName=kubernetes/kubectl
 ARG KUBECTL_VERSION=1.24.4
