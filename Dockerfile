@@ -64,7 +64,7 @@ RUN curl -s "https://s3.amazonaws.com/session-manager-downloads/plugin/${AWS_SES
 
 # Install kubectl
 # renovate: datasource=github-tags depName=kubernetes/kubectl
-ARG KUBECTL_VERSION=1.24.4
+ARG KUBECTL_VERSION=1.25.0
 RUN curl -LO "https://dl.k8s.io/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl" &&\
     curl -LO "https://dl.k8s.io/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl.sha256" &&\
     echo "$(<kubectl.sha256) kubectl" | sha256sum --check &&\
