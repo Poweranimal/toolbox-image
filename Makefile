@@ -3,7 +3,7 @@
 -include .env
 
 # System
-SHELL			?= /bin/bash -ec
+SHELL			= /bin/bash -ec
 
 # Commands
 DOCKER			?= docker
