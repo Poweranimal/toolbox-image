@@ -75,7 +75,7 @@ RUN curl -LO "https://dl.k8s.io/release/v${KUBECTL_VERSION}/bin/linux/amd64/kube
 
 # Install minikube
 # renovate: datasource=github-tags depName=kubernetes/minikube
-ARG MINIKUBE_VERSION=1.26.1
+ARG MINIKUBE_VERSION=1.27.0
 RUN curl -LO "https://storage.googleapis.com/minikube/releases/v${MINIKUBE_VERSION}/minikube-${MINIKUBE_VERSION}-0.x86_64.rpm" &&\
     rpm -ivh "minikube-${MINIKUBE_VERSION}-0.x86_64.rpm" &&\
     rm -rf "minikube-${MINIKUBE_VERSION}-0.x86_64.rpm"
