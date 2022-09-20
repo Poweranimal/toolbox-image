@@ -52,7 +52,7 @@ ARG AWS_CLI_VERSION=2.7.31
 RUN curl -o "/awscliv2.zip" "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-${AWS_CLI_VERSION}.zip" &&\
     unzip -q "/awscliv2.zip" &&\
     ./aws/install &&\
-    rm -rf "/awscliv2.zip" /aws &&\
+    rm -rf "/awscliv2.zip" ./aws &&\
     echo "complete -C '$(which aws_completer)' aws" > /etc/profile.d/aws-cli.sh
 
 # Install AWS Session Manager
