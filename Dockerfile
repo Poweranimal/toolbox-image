@@ -93,7 +93,7 @@ RUN curl -LO "https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz" &&\
 # renovate: datasource=github-tags depName=databus23/helm-diff
 ARG HELM_DIFF_VERSION=3.6.0
 # renovate: datasource=github-tags depName=aslafy-z/helm-git
-ARG HELM_GIT_VERSION=0.11.4
+ARG HELM_GIT_VERSION=0.13.0
 RUN helm plugin install https://github.com/databus23/helm-diff --version "${HELM_DIFF_VERSION}" &&\
     helm plugin install https://github.com/aslafy-z/helm-git --version "${HELM_GIT_VERSION}"
 
