@@ -113,7 +113,7 @@ RUN curl -qLo /usr/local/bin/hadolint "https://github.com/hadolint/hadolint/rele
 
 # Install buf
 # renovate: datasource=github-tags depName=bufbuild/buf
-ARG BUF_VERSION=1.8.0
+ARG BUF_VERSION=1.9.0
 ARG TARGETPLATFORM
 RUN curl -Ls "https://github.com/bufbuild/buf/releases/download/v${BUF_VERSION}/buf-Linux-x86_64.tar.gz" |\
     tar -xvzf - -C /usr/local/bin --strip-components 2 --wildcards 'buf/bin/*'
