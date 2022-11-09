@@ -107,7 +107,7 @@ RUN rpm -ivh "https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_V
 
 # Install hadolint
 # renovate: datasource=github-tags depName=hadolint/hadolint
-ARG HADOLINT_VERSION=2.10.0
+ARG HADOLINT_VERSION=2.12.0
 RUN curl -qLo /usr/local/bin/hadolint "https://github.com/hadolint/hadolint/releases/download/v${HADOLINT_VERSION}/hadolint-Linux-x86_64" &&\
     chmod +x /usr/local/bin/hadolint
 
