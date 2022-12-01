@@ -1,4 +1,4 @@
-FROM registry.fedoraproject.org/fedora-toolbox:36
+FROM registry.fedoraproject.org/fedora-toolbox:37
 LABEL summary="Base image for feadora toolbox" \
       maintainer="Felix Proehl <felix@golane.de>"
 
@@ -13,7 +13,7 @@ RUN dnf config-manager --add-repo https://download.docker.com/linux/fedora/docke
     dnf config-manager --add-repo https://cli.github.com/packages/rpm/gh-cli.repo
 
 # Install fusion repos.
-ARG FEDORA_VERSION=36
+ARG FEDORA_VERSION=37
 RUN dnf install -y "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-${FEDORA_VERSION}.noarch.rpm"\
     "https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-${FEDORA_VERSION}.noarch.rpm" &&\
     dnf clean all
