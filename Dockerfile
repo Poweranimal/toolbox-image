@@ -1,4 +1,4 @@
-FROM registry.fedoraproject.org/fedora-toolbox:37
+FROM registry.fedoraproject.org/fedora-toolbox:39
 LABEL summary="Base image for feadora toolbox" \
       maintainer="Felix Proehl <felix@golane.de>"
 
